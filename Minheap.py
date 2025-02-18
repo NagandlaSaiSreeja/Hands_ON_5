@@ -1,21 +1,18 @@
 class MinHeap:
     def __init__(self, data=None):
-        """
-        Initialize a MinHeap.
-        If a list is provided, build the min heap.
-        """
-        self.heap = data[:] if data else []  # Copy to avoid modifying the original list
+        
+        self.heap = data[:] if data else []  
         self.build_min_heap()
 
     # Parent and child index calculations using bitwise operators
     def parent(self, i):
-        return (i - 1) >> 1  # Same as (i - 1) // 2
+        return (i - 1) >> 1  
 
     def left_child(self, i):
-        return (i << 1) + 1  # Same as 2 * i + 1
+        return (i << 1) + 1  
 
     def right_child(self, i):
-        return (i << 1) + 2  # Same as 2 * i + 2
+        return (i << 1) + 2  
 
     def build_min_heap(self):
         """
@@ -42,9 +39,7 @@ class MinHeap:
             self.heapify(smallest)
 
     def insert(self, value):
-        """
-        Inserts a new element into the heap.
-        """
+       
         self.heap.append(value)
         i = len(self.heap) - 1
         while i > 0 and self.heap[self.parent(i)] > self.heap[i]:
@@ -52,9 +47,7 @@ class MinHeap:
             i = self.parent(i)
 
     def remove(self):
-        """
-        Removes and returns the root element (minimum value).
-        """
+      
         if not self.heap:
             raise IndexError("Heap is empty, cannot remove element.")
         root_value = self.heap[0]
