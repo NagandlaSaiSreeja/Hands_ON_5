@@ -4,7 +4,7 @@ class MinHeap:
         self.heap = data[:] if data else []  
         self.build_min_heap()
 
-    # Parent and child index calculations using bitwise operators
+    
     def parent(self, i):
         return (i - 1) >> 1  
 
